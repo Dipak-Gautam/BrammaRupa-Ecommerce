@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router";
 
 const categories = [
   {
@@ -27,7 +28,11 @@ const CategoriesPage = () => {
       <h1 className="text-3xl font-bold text-gray-900 mb-10">Categories</h1>
       <div className="flex gap-5 flex-wrap">
         {categories.map((items) => (
-          <div className="bg-slate-100 border p-5 items-center w-60 rounded-2xl flex flex-col hover:bg-white hover:shadow-lg shadow-black/50 gap-3">
+          <NavLink
+            to={"/product"}
+            key={items.title}
+            className="bg-slate-100 border p-5 items-center w-60 rounded-2xl flex flex-col hover:bg-white hover:shadow-lg shadow-black/50 gap-3"
+          >
             <div>
               <img
                 src={`./icons/${items.image}`}
@@ -41,7 +46,7 @@ const CategoriesPage = () => {
             <div className="text-sm font-medium text-slate-500 text-center">
               {items.description}
             </div>
-          </div>
+          </NavLink>
         ))}
       </div>
     </div>
