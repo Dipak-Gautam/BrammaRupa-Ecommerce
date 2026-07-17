@@ -7,18 +7,21 @@ const categories = [
     title: " Fast Food",
     description:
       "Buy the  best test and hygienic food in pokhara. we offer fast delivery and cash on delivery . Enjoy your food with Nitro store",
+    category: "food",
   },
   {
     image: "pc.png",
     title: "Tech Product",
     description:
       "Buy the  best test and hygienic food in pokhara. we offer fast delivery and cash on delivery . Enjoy your food with Nitro store",
+    category: "tech",
   },
   {
     image: "sneakers.png",
     title: " Sneakers",
     description:
       "Buy the  best test and hygienic food in pokhara. we offer fast delivery and cash on delivery . Enjoy your food with Nitro store",
+    category: "sneakers",
   },
 ];
 
@@ -31,6 +34,7 @@ const CategoriesPage = () => {
           <NavLink
             to={"/product"}
             key={items.title}
+            state={{ items }}
             className="bg-slate-100 border p-5 items-center w-60 rounded-2xl flex flex-col hover:bg-white hover:shadow-lg shadow-black/50 gap-3"
           >
             <div>

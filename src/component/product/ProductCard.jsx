@@ -2,23 +2,16 @@ import React from "react";
 import { FaStar } from "react-icons/fa6";
 import AddToCart from "../buttons/AddToCart";
 import { NavLink } from "react-router";
-const data = {
-  image:
-    "https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?r=0&cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3",
-  price: "299",
-  productName: "Burger",
-  rating: 5,
-};
 
-const ProductCard = () => {
-  let a;
+const ProductCard = ({ data }) => {
   return (
     <NavLink
       to={"/product-detail"}
+      state={{ data }}
       className="w-70 overflow-hidden rounded-2xl border border-gray-300 h-fit cursor-pointer bg-slate-100 hover:bg-slate-50 hover:shadow-lg shadow-black/50"
     >
       <div>
-        <img src={data.image} alt={data.productName} />
+        <img src={data.image[0]} alt={data.productName} className="h-52" />
       </div>
       <div className=" p-3">
         <div className="flex justify-between">
@@ -26,8 +19,8 @@ const ProductCard = () => {
             {data.productName}
           </div>
           <div className="flex gap-0.5">
-            {Array.from({ length: 5 }, (_, index) => (
-              <FaStar className="text-primary" />
+            {Array.from({ length: Number(data.rating) }, (_, index) => (
+              <FaStar key={index} className="text-primary" />
             ))}
           </div>
         </div>
