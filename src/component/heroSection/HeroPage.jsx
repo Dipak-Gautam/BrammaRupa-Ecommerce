@@ -12,10 +12,10 @@ const HeroPage = () => {
         </div>
         <div>
           <img src="./highRes.jpg" className="max-h-150" />
-          <p className="absolute h-full flex flex-col justify-center p-20 z-40 top-0 w-full gap-4">
-            <p className=" text-xl md:text-5xl text-white font-bold md:w-100 text-left">
+          <div className="absolute h-full flex flex-col justify-center p-20 z-40 top-0 w-full gap-4">
+            <div className=" text-xl md:text-5xl text-white font-bold md:w-100 text-left">
               New Arrivals
-            </p>
+            </div>
             <p className="md:w-100 text-slate-100 font-medium text-sm text-left">
               Best shoes in the town Lorem ipsum dolor sit amet consectetur,
               adipisicing elit. Atque eius fugit ut consectetur eaque,
@@ -23,7 +23,7 @@ const HeroPage = () => {
               quisquam, possimus quos recusandae? Voluptates incidunt saepe
               quasi magni culpa!
             </p>
-          </p>
+          </div>
         </div>
         <div>
           <img src="./tech.png" className="max-h-150" />

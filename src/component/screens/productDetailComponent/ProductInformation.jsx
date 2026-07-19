@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa6";
 import AddToCart from "../../buttons/AddToCart";
 
 const ProductInformation = ({ data }) => {
+  console.log("data", data);
   return (
     <div className="flex-1 flex flex-col px-5 gap-3">
       <p className="text-xs font-medium text-gray-500">{data.category}</p>
@@ -17,7 +18,7 @@ const ProductInformation = ({ data }) => {
             <FaStar key={index} className="text-primary text-xl" />
           ))}
         </div>
-        <AddToCart />
+        <AddToCart data={data} />
       </div>
       <div className="space-y-2">
         <p className="text-xl font-bold text-gray-900">Features</p>

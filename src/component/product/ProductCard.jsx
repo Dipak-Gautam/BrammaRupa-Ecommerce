@@ -28,7 +28,14 @@ const ProductCard = ({ data }) => {
           <div className="text-lg font-bold text-primary">
             Rs.<span>{data.price}</span>
           </div>
-          <AddToCart />
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <AddToCart data={data} />
+          </div>
         </div>
       </div>
     </NavLink>

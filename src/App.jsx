@@ -9,6 +9,8 @@ import ProductScreen from "./component/screens/ProductScreen";
 import ProductDetailScreen from "./component/screens/ProductDetailScreen";
 import MainCheckOutPage from "./component/checkout/MainCheckOutPage";
 import DashboardPage from "./component/dashboard/DashboardPage";
+import PaymentSuccess from "./Esewa/PaymentSuccess";
+import PaymentFailure from "./Esewa/PaymentFailure";
 const App = () => {
   return (
     <div className="h-screen w-full flex flex-col">
@@ -21,6 +23,8 @@ const App = () => {
           <Route path="/product-detail" element={<ProductDetailScreen />} />
           <Route path="/checkout" element={<MainCheckOutPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-fail" element={<PaymentFailure />} />
         </Routes>
       </div>
       <Footer />

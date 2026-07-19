@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddProduct from "./AddProduct";
 import AllProducts from "./AllProducts";
 import UpdateProduct from "./UpdateProduct";
+import OrderPage from "./OrderPage";
 
 const DashboardPage = () => {
   const [screen, setScreen] = useState(0);
@@ -26,10 +27,17 @@ const DashboardPage = () => {
           >
             Add Products
           </div>
+          <div
+            onClick={() => setScreen(2)}
+            className={`text-white bg-primaryHover font-medium p-2 px-4 hover:bg-orange-400 rounded-xl cursor-pointer ${screen == 1 && "bg-orange-700 border border-white"}`}
+          >
+            Orders
+          </div>
         </div>
         <div className="flex-1">
           {screen == 0 && <AllProducts />}
           {screen == 1 && <AddProduct />}
+          {screen == 2 && <OrderPage />}
         </div>
       </div>
     </div>

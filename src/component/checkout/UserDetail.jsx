@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import ErrorInput from "../inputComponent/ErrorInput";
+import PlainButton from "../buttons/PlainButton";
+import Checkout from "../../Esewa/Checkout";
+
+const calculateTotal = (calculateArray) => {
+  let total = 0;
+  calculateArray.map((item) => {
+    total = total + item.quantity * item.price;
+  });
+  return total;
+};
 
 const UserDetail = () => {
   const [firstName, setFirstName] = useState("");
@@ -10,9 +20,26 @@ const UserDetail = () => {
   const [street, setStreet] = useState("");
   const [addressDescription, setAddressDescription] = useState("");
   const [error, setError] = useState(false);
-  console.log(firstName, lastName, contactNumber, email, city, street);
+  const [open, setOpen] = useState(false);
+  const proceedToEsewa = () => {
+    let userDetail = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      contactNumber: contactNumber,
+      city: city,
+      street: street,
+      addressDescription: addressDescription,
+    };
+
+    localStorage.setItem("order", JSON.stringify(userDetail));
+    setOpen(true);
+  };
+
+  const data = JSON.parse(localStorage.getItem("cart"));
+
   return (
-    <div className="flex flex-1 flex-col p-4 overflow-y-auto pb-10 gap-7">
+    <div className="flex flex-1 flex-col p-4 overflow-y-auto pb-10 gap-7 items-center">
       <div className="flex gap-15">
         <ErrorInput
           title={"First Name"}
@@ -70,6 +97,12 @@ const UserDetail = () => {
           onChange={(e) => setAddressDescription(e.target.value)}
         ></textarea>
       </div>
+      <div className="flex justify-center mb-3">
+        <PlainButton title={"proceed"} onClick={() => proceedToEsewa()} />
+      </div>
+      {open && (
+        <Checkout open={open} onClose={setOpen} amount={calculateTotal(data)} />
+      )}
     </div>
   );
 };
